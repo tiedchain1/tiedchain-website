@@ -3,282 +3,314 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TiedChain helps businesses turn Excel sales data into clear demand forecasts, smarter inventory decisions and practical supply chain insights." />
-  <meta name="theme-color" content="#07111f" />
-  <title>TiedChain | Demand Forecasting & Supply Chain Analytics</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="TiedChain is an AI-powered supply chain intelligence platform for demand forecasting, inventory optimization and smarter purchasing decisions." />
+  <title>TiedChain | AI Supply Chain Intelligence</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#top" aria-label="TiedChain home">
-        <span class="brand-mark" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </span>
-        <span>TiedChain</span>
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="TiedChain home">
+        <img src="assets/tiedchain-logo.jpg" alt="TiedChain logo" />
       </a>
 
-      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">
+      <button class="menu-button" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="nav-links">
+        <a href="#platform">Platform</a>
         <a href="#solutions">Solutions</a>
-        <a href="#demo">Demo</a>
-        <a href="#process">How it works</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+        <a class="button button-small" href="mailto:tiedchain1@gmail.com?subject=TiedChain%20Demo%20Request">
+          Request a Demo
+        </a>
       </nav>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-grid"></div>
-      <div class="container hero-layout">
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
+
+      <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <div class="eyebrow">Demand forecasting · Inventory intelligence · Excel automation</div>
-          <h1>Turn sales data into <span>smarter supply decisions.</span></h1>
+          <div class="eyebrow">AI SUPPLY CHAIN INTELLIGENCE</div>
+          <h1>Turn supply chain data into better decisions.</h1>
           <p class="hero-text">
-            TiedChain transforms everyday Excel files into clear demand forecasts, model comparisons
-            and practical inventory insights—without complex software or long implementation projects.
+            Forecast demand, optimize inventory and improve purchasing decisions
+            through one intelligent platform.
           </p>
+
           <div class="hero-actions">
-            <a class="button primary" href="#demo">Explore the demo</a>
-            <a class="button secondary" href="#contact">Discuss your needs</a>
+            <a class="button" href="mailto:tiedchain1@gmail.com?subject=TiedChain%20Demo%20Request">
+              Request a Demo
+            </a>
+            <a class="button button-secondary" href="#platform">Explore the Platform</a>
           </div>
-          <div class="trust-row">
-            <div><strong>Excel-first</strong><span>Works with familiar files</span></div>
-            <div><strong>Model comparison</strong><span>Finds the best forecast</span></div>
-            <div><strong>Actionable output</strong><span>Built for real decisions</span></div>
+
+          <div class="hero-benefits">
+            <span>Better demand visibility</span>
+            <span>Lower excess inventory</span>
+            <span>Faster planning decisions</span>
           </div>
         </div>
 
-        <div class="hero-visual reveal">
-          <div class="dashboard-shell">
-            <div class="window-bar">
-              <div class="window-dots"><i></i><i></i><i></i></div>
-              <span>Forecasting Application</span>
-              <span class="status">Analysis complete</span>
+        <div class="dashboard-shell reveal">
+          <div class="dashboard-topbar">
+            <div>
+              <span class="dashboard-label">Supply Chain Overview</span>
+              <strong>Executive Dashboard</strong>
             </div>
-            <div class="dashboard-content">
-              <div class="metric-card">
-                <span>Forecast accuracy</span>
-                <strong>92.4%</strong>
-                <small>Best-performing model</small>
+            <span class="status"><i></i> Live insights</span>
+          </div>
+
+          <div class="kpi-grid">
+            <article class="kpi-card">
+              <span>Forecast Accuracy</span>
+              <strong>94.8%</strong>
+              <small class="positive">↑ Improving</small>
+            </article>
+            <article class="kpi-card">
+              <span>Inventory Health</span>
+              <strong>87%</strong>
+              <small>Balanced stock</small>
+            </article>
+            <article class="kpi-card">
+              <span>Products at Risk</span>
+              <strong>12</strong>
+              <small>Need attention</small>
+            </article>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-heading">
+              <div>
+                <span>Demand outlook</span>
+                <strong>Actual vs Forecast</strong>
               </div>
-              <div class="metric-card">
-                <span>Recommended order</span>
-                <strong>1,248</strong>
-                <small>Units across selected SKUs</small>
-              </div>
-              <div class="chart-card">
-                <div class="chart-head">
-                  <div>
-                    <span>Demand forecast</span>
-                    <strong>Actual vs forecast</strong>
-                  </div>
-                  <span class="chip">12 months</span>
-                </div>
-                <svg viewBox="0 0 620 230" role="img" aria-label="Demand forecast chart">
-                  <defs>
-                    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#45d0b7" stop-opacity=".32"/>
-                      <stop offset="100%" stop-color="#45d0b7" stop-opacity="0"/>
-                    </linearGradient>
-                  </defs>
-                  <g class="grid-lines">
-                    <line x1="24" y1="30" x2="600" y2="30"/>
-                    <line x1="24" y1="80" x2="600" y2="80"/>
-                    <line x1="24" y1="130" x2="600" y2="130"/>
-                    <line x1="24" y1="180" x2="600" y2="180"/>
-                  </g>
-                  <path class="area" d="M25 168 C70 155 88 128 130 134 S195 118 232 104 S300 126 340 94 S405 72 450 86 S520 46 600 42 L600 205 L25 205 Z"/>
-                  <path class="actual" d="M25 168 C70 155 88 128 130 134 S195 118 232 104 S300 126 340 94 S405 72 450 86"/>
-                  <path class="forecast" d="M450 86 C500 70 535 52 600 42"/>
-                  <circle cx="450" cy="86" r="5"/>
-                  <circle cx="600" cy="42" r="5"/>
-                </svg>
-                <div class="chart-legend"><span><i class="actual-key"></i>Actual</span><span><i class="forecast-key"></i>Forecast</span></div>
-              </div>
-              <div class="model-row">
-                <div><span>Holt-Winters</span><strong>8.1% MAPE</strong></div>
-                <div><span>Linear Regression</span><strong>10.7% MAPE</strong></div>
-                <div><span>Seasonal Regression</span><strong>9.4% MAPE</strong></div>
-              </div>
+              <span class="chart-period">Next 6 months</span>
+            </div>
+
+            <div class="chart">
+              <div class="chart-lines"></div>
+              <svg viewBox="0 0 620 230" preserveAspectRatio="none" aria-label="Demand forecast chart">
+                <defs>
+                  <linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#2563eb" stop-opacity=".28"/>
+                    <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="area" d="M0,180 C70,170 75,125 145,140 C215,155 230,80 300,100 C370,122 395,45 465,70 C535,95 555,40 620,30 L620,230 L0,230 Z"/>
+                <path class="actual-line" d="M0,180 C70,170 75,125 145,140 C215,155 230,80 300,100"/>
+                <path class="forecast-line" d="M300,100 C370,122 395,45 465,70 C535,95 555,40 620,30"/>
+              </svg>
             </div>
           </div>
-          <div class="floating-note note-one"><span>↓</span><div><strong>Lower stock risk</strong><small>Clear reorder recommendations</small></div></div>
-          <div class="floating-note note-two"><span>✓</span><div><strong>Best model selected</strong><small>Based on forecast error</small></div></div>
+
+          <div class="insight-card">
+            <div class="insight-icon">AI</div>
+            <div>
+              <span>Recommended action</span>
+              <strong>Increase replenishment for high-growth products.</strong>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="logo-strip">
-      <div class="container">
-        <p>Built for teams that manage demand, purchasing, stock and replenishment</p>
-        <div class="role-list">
-          <span>Demand Planning</span>
-          <span>Purchasing</span>
-          <span>Supply Chain</span>
-          <span>Inventory Control</span>
-          <span>Operations</span>
-        </div>
+    <section class="outcomes">
+      <div class="container outcomes-grid">
+        <div><strong>Plan smarter</strong><span>with clearer demand signals</span></div>
+        <div><strong>Buy better</strong><span>with informed recommendations</span></div>
+        <div><strong>Stock efficiently</strong><span>with greater inventory control</span></div>
+        <div><strong>Act faster</strong><span>with actionable insights</span></div>
       </div>
     </section>
 
-    <section class="section" id="solutions">
+    <section class="section" id="platform">
       <div class="container">
         <div class="section-heading reveal">
-          <div class="eyebrow">Solutions</div>
-          <h2>Practical analytics for everyday supply chain decisions.</h2>
-          <p>Start with the data you already have and turn it into information your team can use immediately.</p>
-        </div>
-
-        <div class="card-grid">
-          <article class="feature-card reveal">
-            <div class="icon-box">↗</div>
-            <h3>Demand Forecasting</h3>
-            <p>Compare forecasting methods and identify the model that best fits each product's sales history.</p>
-            <ul><li>Multiple statistical models</li><li>MAPE-based comparison</li><li>Flexible forecast horizon</li></ul>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-box">▦</div>
-            <h3>Inventory Intelligence</h3>
-            <p>Connect demand, stock, expected receipts and reserved quantities to support smarter replenishment.</p>
-            <ul><li>Stock coverage visibility</li><li>Potential stockout alerts</li><li>Excess inventory signals</li></ul>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-box">⚙</div>
-            <h3>Excel Automation</h3>
-            <p>Automate repetitive reporting and transform existing spreadsheets into consistent decision tools.</p>
-            <ul><li>Simple file import</li><li>Structured Excel output</li><li>Fast repeatable workflow</li></ul>
-          </article>
-          <article class="feature-card reveal">
-            <div class="icon-box">◎</div>
-            <h3>Supply Chain Consulting</h3>
-            <p>Translate business challenges into practical workflows, KPIs and analytics tailored to your operation.</p>
-            <ul><li>Process review</li><li>Purchasing analytics</li><li>Custom business rules</li></ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section demo-section" id="demo">
-      <div class="container demo-layout">
-        <div class="demo-copy reveal">
-          <div class="eyebrow">Forecasting demo</div>
-          <h2>From Excel to clear forecasts in seconds.</h2>
+          <div class="eyebrow">THE PLATFORM</div>
+          <h2>Intelligence for every planning decision.</h2>
           <p>
-            Upload a sales file, select the forecast horizon and receive an Excel workbook with forecasts,
-            model comparison and highlighted results.
+            TiedChain connects forecasting, inventory and purchasing intelligence
+            in one clear decision-support environment.
           </p>
-          <div class="check-list">
-            <div><span>01</span><p><strong>Select your Excel file</strong><small>Use your existing sales history format.</small></p></div>
-            <div><span>02</span><p><strong>Choose the forecast horizon</strong><small>Forecast from 1 to 12 months ahead.</small></p></div>
-            <div><span>03</span><p><strong>Review the output</strong><small>Compare models and identify the best result.</small></p></div>
-          </div>
-          <a class="button primary disabled-link" href="#" aria-disabled="true" title="Demo download will be added soon">Demo download coming soon</a>
-          <p class="microcopy">Windows desktop demo · Excel output · No subscription required for the trial version</p>
         </div>
 
-        <div class="excel-preview reveal" aria-label="Example forecasting output">
-          <div class="excel-top">
-            <div class="excel-brand"><span>X</span> Forecast Results</div>
-            <div class="excel-controls"><i></i><i></i><i></i></div>
-          </div>
-          <div class="sheet-tabs"><span class="active">Forecast Results</span><span>Model Comparison</span></div>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr><th>COD</th><th>Description</th><th>Stock</th><th>Forecast</th><th>Best model</th><th>MAPE</th></tr>
-              </thead>
-              <tbody>
-                <tr><td>1001</td><td>Product Alpha</td><td>128</td><td>154</td><td><span class="best">Holt-Winters</span></td><td>7.8%</td></tr>
-                <tr><td>1002</td><td>Product Beta</td><td>84</td><td>121</td><td><span class="best">Seasonal Reg.</span></td><td>9.1%</td></tr>
-                <tr class="risk"><td>1003</td><td>Product Gamma</td><td>32</td><td>96</td><td><span class="best">Linear Reg.</span></td><td>8.6%</td></tr>
-                <tr><td>1004</td><td>Product Delta</td><td>210</td><td>177</td><td><span class="best">Holt</span></td><td>10.3%</td></tr>
-                <tr><td>1005</td><td>Product Epsilon</td><td>75</td><td>109</td><td><span class="best">Holt-Winters</span></td><td>6.9%</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="excel-footer"><span>Ready</span><span>Best method highlighted automatically</span></div>
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <div class="feature-icon">01</div>
+            <h3>AI Demand Forecasting</h3>
+            <p>Identify demand patterns and create reliable forward-looking plans.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">02</div>
+            <h3>Inventory Intelligence</h3>
+            <p>Improve availability while reducing slow-moving and excess inventory.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">03</div>
+            <h3>Purchasing Optimization</h3>
+            <p>Understand what to order, when to order and how much to order.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">04</div>
+            <h3>ABC Analysis</h3>
+            <p>Prioritize products based on their contribution and business importance.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">05</div>
+            <h3>Performance Analytics</h3>
+            <p>Track KPIs, forecast accuracy, stock health and operational trends.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">06</div>
+            <h3>Decision Support</h3>
+            <p>Turn complex operational data into clear, actionable recommendations.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section process-section" id="process">
+    <section class="section soft-section" id="solutions">
+      <div class="container split-section">
+        <div class="section-heading reveal">
+          <div class="eyebrow">WHY TIEDCHAIN</div>
+          <h2>Built for real supply chain challenges.</h2>
+          <p>
+            Move from manual analysis and fragmented information to confident,
+            consistent and data-driven decisions.
+          </p>
+        </div>
+
+        <div class="benefit-list reveal">
+          <div class="benefit-item">
+            <span>01</span>
+            <div>
+              <h3>Reduce excess inventory</h3>
+              <p>Identify overstock risks before they become costly.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span>02</span>
+            <div>
+              <h3>Improve planning accuracy</h3>
+              <p>Use multiple analytical approaches to support stronger forecasts.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span>03</span>
+            <div>
+              <h3>Make faster decisions</h3>
+              <p>Bring the right information together in one clear view.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <span>04</span>
+            <div>
+              <h3>Gain operational visibility</h3>
+              <p>Understand product, inventory and purchasing performance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
       <div class="container">
         <div class="section-heading centered reveal">
-          <div class="eyebrow">How it works</div>
-          <h2>Simple enough to use. Flexible enough to grow.</h2>
+          <div class="eyebrow">HOW IT WORKS</div>
+          <h2>From operational data to confident action.</h2>
         </div>
-        <div class="process-grid">
-          <div class="process-step reveal"><span>1</span><h3>Understand the data</h3><p>Review the available sales, stock and replenishment fields.</p></div>
-          <div class="process-step reveal"><span>2</span><h3>Build the workflow</h3><p>Apply forecasting logic and business rules to the real process.</p></div>
-          <div class="process-step reveal"><span>3</span><h3>Deliver clear output</h3><p>Return practical Excel reports that support daily decisions.</p></div>
-          <div class="process-step reveal"><span>4</span><h3>Improve continuously</h3><p>Refine models and reporting as the business and data evolve.</p></div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span>1</span>
+            <h3>Connect</h3>
+            <p>Bring together the business data already available in your organization.</p>
+          </article>
+          <article class="step reveal">
+            <span>2</span>
+            <h3>Analyze</h3>
+            <p>TiedChain evaluates demand, stock and purchasing patterns.</p>
+          </article>
+          <article class="step reveal">
+            <span>3</span>
+            <h3>Decide</h3>
+            <p>Receive clear forecasts, alerts and recommendations.</p>
+          </article>
+          <article class="step reveal">
+            <span>4</span>
+            <h3>Improve</h3>
+            <p>Track results and continuously strengthen planning performance.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section about-section" id="about">
-      <div class="container about-layout">
-        <div class="about-panel reveal">
-          <div class="eyebrow">About TiedChain</div>
-          <h2>Technology connected to real supply chain work.</h2>
+    <section class="section soft-section" id="industries">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">INDUSTRIES</div>
+          <h2>Designed for dynamic supply chains.</h2>
         </div>
-        <div class="about-copy reveal">
-          <p class="lead">
-            TiedChain focuses on practical forecasting, purchasing analytics and Excel automation
-            for businesses that need better decisions without replacing their entire technology stack.
-          </p>
-          <p>
-            The approach combines hands-on supply chain experience with data analysis and lightweight
-            software tools, creating solutions that fit the way teams already work.
-          </p>
-          <div class="about-stats">
-            <div><strong>Excel-first</strong><span>Low-friction adoption</span></div>
-            <div><strong>Business-led</strong><span>Logic shaped around operations</span></div>
-            <div><strong>Scalable</strong><span>From simple reports to custom tools</span></div>
-          </div>
+
+        <div class="industry-grid">
+          <div class="industry-card reveal">Wholesale Distribution</div>
+          <div class="industry-card reveal">FMCG</div>
+          <div class="industry-card reveal">Retail</div>
+          <div class="industry-card reveal">Manufacturing</div>
+          <div class="industry-card reveal">Logistics</div>
         </div>
       </div>
     </section>
 
-    <section class="contact-section" id="contact">
-      <div class="container contact-card reveal">
+    <section class="cta-section" id="contact">
+      <div class="container cta-card reveal">
         <div>
-          <div class="eyebrow">Start a conversation</div>
-          <h2>Let’s make your supply chain data more useful.</h2>
-          <p>Tell us what you currently manage in Excel and where your process needs better visibility or automation.</p>
+          <div class="eyebrow light">START A CONVERSATION</div>
+          <h2>Ready to make smarter supply chain decisions?</h2>
+          <p>Contact TiedChain to discuss your planning and inventory challenges.</p>
         </div>
-        <div class="contact-actions">
-          <a class="button light" href="mailto:hello@tiedchain.com">hello@tiedchain.com</a>
-          <span>Response within 1–2 business days</span>
-        </div>
+        <a class="button button-light" href="mailto:tiedchain1@gmail.com?subject=TiedChain%20Demo%20Request">
+          Request a Demo
+        </a>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="container footer-grid">
-      <a class="brand" href="#top">
-        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
-        <span>TiedChain</span>
-      </a>
-      <p>Demand forecasting, supply chain analytics and Excel automation.</p>
+      <div class="footer-brand">
+        <img src="assets/tiedchain-logo.jpg" alt="TiedChain" />
+        <p>AI Supply Chain Intelligence Platform</p>
+      </div>
+
       <div class="footer-links">
+        <a href="#platform">Platform</a>
         <a href="#solutions">Solutions</a>
-        <a href="#demo">Demo</a>
-        <a href="#about">About</a>
-        <a href="mailto:hello@tiedchain.com">Email</a>
+        <a href="#industries">Industries</a>
+        <a href="mailto:tiedchain1@gmail.com">tiedchain1@gmail.com</a>
       </div>
     </div>
+
     <div class="container footer-bottom">
       <span>© <span id="year"></span> TiedChain. All rights reserved.</span>
-      <span>Built for smarter supply decisions.</span>
     </div>
   </footer>
 
