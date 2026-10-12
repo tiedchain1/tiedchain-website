@@ -1,0 +1,172 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TiedChain | Stock Recovery Analyzer</title><style>
+:root{font-family:Inter,system-ui,Arial,sans-serif;color:#e8eef7;background:#0b1423}*{box-sizing:border-box}body{margin:0}main{max-width:1200px;margin:auto;padding:30px 20px}header{display:flex;justify-content:space-between;align-items:center;gap:12px}h1{font-size:clamp(27px,4vw,42px);margin:36px 0 8px}p,.muted{color:#9baec5}button,.file{background:#36b6a2;color:#071b23;border:0;border-radius:9px;padding:12px 18px;font-weight:700;cursor:pointer;display:inline-block}button.secondary{background:#24374d;color:#e8eef7}.panel{background:#142337;border:1px solid #304259;border-radius:15px;padding:20px;margin:18px 0}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric{background:#1c3047;padding:17px;border-radius:12px}.metric strong{display:block;font-size:25px;margin-top:6px}input,select{background:#0d1b2b;color:#fff;border:1px solid #4c627b;border-radius:7px;padding:9px;max-width:100%}input[type=number]{width:85px}.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:13px}td,th{padding:10px;border-bottom:1px solid #32445a;text-align:right}td:first-child,th:first-child,td:nth-child(2),th:nth-child(2){text-align:left}.group-row td{text-align:left!important;font-weight:800;font-size:14px;padding:13px 12px;border-top:3px solid #73869c}.group-a td{background:#123f38;color:#8ff0cc}.group-b td{background:#443817;color:#ffe29b}.group-c td{background:#27384e;color:#b7d3fa}.abc-pill{display:inline-block;border-radius:6px;padding:4px 10px;font-weight:800}.pill-a{background:#175c4d;color:#a2f7d9}.pill-b{background:#705517;color:#ffe7a5}.pill-c{background:#334e70;color:#c6ddff}.bad{color:#ff8c8c}.good{color:#64d6b2}.chart{display:flex;align-items:end;gap:15px;height:190px;border-bottom:1px solid #60748a;padding:10px 8px 0}.barwrap{flex:1;display:flex;flex-direction:column;justify-content:end;align-items:center;height:100%;gap:5px}.bar{width:65%;min-height:2px;background:#39b6a5;border-radius:5px 5px 0 0}.barwrap small{font-size:11px}.flex{display:flex;flex-wrap:wrap;gap:12px;align-items:center}.mapping{margin-top:18px;padding:16px;background:#0d1b2b;border:1px solid #47617b;border-radius:10px}.mapping-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:12px 0}.mapping-grid label{display:flex;flex-direction:column;gap:6px;font-size:13px}.mapping-grid select{width:100%}.notice{padding:10px;border-radius:8px;background:#2b3c50}footer{color:#8b9eb3;font-size:12px;margin:25px 0}@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.metric strong{font-size:20px}}
+
+/* V9: show every result column without horizontal page scrolling */
+main{max-width:1680px;width:100%;padding:24px clamp(10px,1.5vw,24px)}
+.tablewrap{width:100%;overflow-x:visible}
+.tablewrap table{width:100%;table-layout:fixed;white-space:normal;font-size:clamp(10px,.77vw,12px)}
+.tablewrap th,.tablewrap td{padding:9px 4px;overflow-wrap:anywhere;vertical-align:middle}
+.tablewrap th{line-height:1.3;hyphens:auto}
+.tablewrap th:nth-child(1){width:6%}
+.tablewrap th:nth-child(2){width:14%}
+.tablewrap th:nth-child(3){width:5%}
+.tablewrap th:nth-child(4){width:7%}
+.tablewrap th:nth-child(5){width:8%}
+.tablewrap th:nth-child(6){width:5%}
+.tablewrap th:nth-child(7){width:8%}
+.tablewrap th:nth-child(8){width:7%}
+.tablewrap th:nth-child(9){width:7%}
+.tablewrap th:nth-child(10){width:7%}
+.tablewrap th:nth-child(11){width:8%}
+.tablewrap th:nth-child(12){width:8%}
+.tablewrap th:nth-child(13){width:10%}
+.tablewrap input[type=number]{width:100%;min-width:0;padding:6px 2px;font-size:inherit}
+.tablewrap .abc-pill{padding:3px 5px}
+@media(max-width:950px){
+ .tablewrap table,.tablewrap tbody,.tablewrap tr,.tablewrap td{display:block;width:100%}
+ .tablewrap thead{display:none}
+ .tablewrap tr:not(.group-row){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border:1px solid #32445a;border-radius:10px;margin:10px 0;padding:8px;background:#192a3e}
+ .tablewrap tr:not(.group-row) td{display:flex;justify-content:space-between;align-items:center;gap:8px;text-align:right!important;min-width:0;border-bottom:1px solid #304259;padding:7px 5px;font-size:12px}
+ .tablewrap tr:not(.group-row) td::before{content:attr(data-label);font-size:11px;color:#9baec5;text-align:left;flex:0 0 45%}
+ .tablewrap tr:not(.group-row) td:nth-child(2){overflow-wrap:anywhere}
+ .tablewrap tr:not(.group-row) td:nth-child(13){grid-column:1/-1;font-weight:700}
+ .tablewrap tr.group-row td{display:block;width:100%;font-size:13px}
+ .tablewrap input[type=number]{max-width:85px}
+}
+@media(max-width:520px){.tablewrap tr:not(.group-row){grid-template-columns:1fr}.tablewrap tr:not(.group-row) td:nth-child(13){grid-column:auto}}
+</style></head><body><main><header><strong>⛓ TiedChain</strong><span class="muted">FREE · Up to 100 SKUs</span></header><h1>Stock Recovery Analyzer</h1><p>Turn unsold inventory into actionable recovery scenarios. No sales history required.</p><section class="panel"><div class="flex"><label class="file" for="upload">Upload Your Inventory</label><input id="upload" type="file" accept=".xlsx,.xls,.csv,.tsv" hidden><button class="secondary" id="demo">Try Demo</button><button class="secondary" id="template">Download Excel Template</button></div><div id="mapping" class="mapping" hidden></div><p id="status" class="muted">Files are processed locally in your browser. Excel and delimited file import use an external spreadsheet library.</p></section><section id="results" hidden><div class="grid"><div class="metric">Products<strong id="count">0</strong></div><div class="metric">Unsold Stock Cost<strong id="cost">—</strong></div><div class="metric">Potential Revenue<strong id="revenue">—</strong></div><div class="metric">Potential Gross P/L<strong id="profit">—</strong></div></div><section class="panel"><h2>ABC Inventory Value Analysis</h2><p class="muted">Based on unsold inventory cost. A: first 80% of cumulative value, B: next 15%, C: remaining. Boundary items are included in the tier they enter.</p><div id="abcSummary" class="flex"></div><div class="chart" id="abcChart"></div></section><section class="panel"><div class="flex" style="justify-content:space-between"><h2>Recovery Results — Sorted by ABC Class &amp; Stock Value</h2><button id="exportResults" class="secondary" type="button">Export Results to Excel</button></div><p class="muted">Suggested discounts are illustrative rules, not predictions. Change Final Discount to explore scenarios. Minimum selling prices are enforced when provided.</p><div class="tablewrap"><table><thead><tr><th>Code</th><th>Product</th><th>Qty</th><th>Unit Cost</th><th>Stock Value</th><th>ABC</th><th>Original Price</th><th>Min Price</th><th>Suggested %</th><th>Final %</th><th>New Price</th><th>Revenue</th><th>Potential Profit / Loss</th></tr></thead><tbody id="rows"></tbody></table></div></section><section class="panel"><h2>Top 10 Unsold Stock Values</h2><div class="chart" id="topChart"></div></section><section class="panel"><h2>Recovery Insights</h2><div id="insights"></div></section></section><footer>Estimates assume all listed units are sold at the scenario price, excluding taxes, fees and selling costs. No demand or sales probability is estimated. Do not use expired products for sale.</footer></main><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script>
+const $=id=>document.getElementById(id), money=n=>Number.isFinite(n)?new Intl.NumberFormat('en-US',{style:'currency',currency:'EUR'}).format(n):'—';let items=[];
+const columns=['Product Code','Product Description','Stock Quantity','Unit Cost','Selling Price','Minimum Selling Price','Expiration Date','Stock Entry Date'];
+function downloadTemplate(){
+ if(typeof XLSX==='undefined'){alert('Spreadsheet library unavailable. Connect to the internet and retry.');return}
+ const ws=XLSX.utils.aoa_to_sheet([columns]);ws['!cols']=[{wch:18},{wch:32},{wch:18},{wch:16},{wch:18},{wch:23},{wch:20},{wch:20}];
+ const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Inventory');XLSX.writeFile(wb,'TiedChain_Stock_Recovery_Template.xlsx');
+}$('template').onclick=downloadTemplate;
+const normalized=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\u0370-\u03ff]/g,'');
+const aliases={
+ 'Product Code':['code','sku','item code','product id','κωδικος','κωδ','κωδ ειδους','κωδικός είδους'],
+ 'Product Description':['description','product','item name','item description','περιγραφη','περιγραφή είδους','ειδος','ονομασια'],
+ 'Stock Quantity':['quantity','qty','stock','stock qty','on hand','υπολοιπο','υπόλοιπο','ποσοτητα','αποθεμα','υπολ κιβ'],
+ 'Unit Cost':['cost','purchase price','cost price','unit purchase cost','κοστος','τιμη κτησης','τιμή αγοράς'],
+ 'Selling Price':['price','sales price','retail price','τιμη πωλησης','λιανικη'],
+ 'Minimum Selling Price':['minimum price','min price','lowest price','ελαχιστη τιμη'],
+ 'Expiration Date':['expiry','expiry date','best before','ημερομηνια ληξης','ληξη'],
+ 'Stock Entry Date':['entry date','received date','date received','ημερομηνια εισαγωγης','ημ εισαγωγης']};
+let pendingRows=null;
+function suggestedMap(headers){
+ const used=new Set(),map={};
+ for(const field of columns){
+  const exact=headers.find(h=>!used.has(h)&&normalized(h)===normalized(field));
+  const aliasesForField=(aliases[field]||[]).map(normalized);
+  const alias=exact?null:headers.find(h=>!used.has(h)&&aliasesForField.includes(normalized(h)));
+  map[field]=exact||alias||'';
+  if(map[field])used.add(map[field]);
+ }
+ return map;
+}
+function analyzeMapped(rows,map){
+ const required=columns.slice(0,4);
+ if(required.some(f=>!map[f]))throw Error('Please match all four required fields.');
+ const values=Object.values(map).filter(Boolean);
+ if(new Set(values).size!==values.length)throw Error('Each source column can be used only once.');
+ parse(rows.map(r=>Object.fromEntries(columns.map(f=>[f,map[f]?r[map[f]]:'']))));
+ $('mapping').hidden=true;
+}
+function showMapping(rows,initial){
+ pendingRows=rows;const headers=[...new Set(rows.flatMap(r=>Object.keys(r)))];
+ if(!headers.length)throw Error('No column headers found.');
+ const box=$('mapping');box.hidden=false;
+ box.innerHTML='<strong>Some columns need your attention</strong><p class="muted">Please select the missing required fields, then continue.</p><div class="mapping-grid">'+columns.map((field,i)=>{
+  const match=initial[field]||'';
+  return '<label>'+safe(field)+(i<4?' *':'')+'<select data-field="'+safe(field)+'"><option value="">'+(i<4?'Select a column':'Not provided')+'</option>'+headers.map(h=>'<option value="'+safe(h)+'"'+(h===match?' selected':'')+'>'+safe(h)+'</option>').join('')+'</select></label>';
+ }).join('')+'</div><button id="analyzeMapped">Analyze Inventory</button>';
+ $('analyzeMapped').onclick=()=>{try{
+  const map=Object.fromEntries([...box.querySelectorAll('select')].map(el=>[el.dataset.field,el.value]));
+  analyzeMapped(pendingRows,map);
+ }catch(err){$('status').textContent='Error: '+err.message;}};
+ $('status').textContent='Please match the missing columns to continue.';
+}
+function importRows(rows){
+ const headers=[...new Set(rows.flatMap(r=>Object.keys(r)))];
+ if(!headers.length)throw Error('No column headers found.');
+ const map=suggestedMap(headers);
+ if(columns.slice(0,4).every(f=>map[f]))analyzeMapped(rows,map);
+ else { $('results').hidden=true;showMapping(rows,map); }
+}
+function parse(data){
+ const filled=data.map((r,i)=>({r,row:i+2})).filter(({r})=>Object.values(r).some(v=>v!==null&&v!==undefined&&String(v).trim()!==''));
+ if(filled.length>100)throw Error('Free version supports up to 100 products. Found '+filled.length+'.');
+ if(!filled.length)throw Error('No products found. Please fill in at least one product.');
+ const names=Object.keys(filled[0].r);
+ const get=(r,k)=>{const key=names.find(n=>normalized(n)===normalized(k));return key===undefined?'':r[key]};
+ const num=(v,required,field,row)=>{
+  if(v===undefined||v===null||String(v).trim()===''){
+   if(required)throw Error('Row '+row+': '+field+' is required.');return null;
+  }
+  let raw=String(v).replace(/[€\s\u00a0]/g,'').trim();
+  if(raw.includes(',')&&raw.includes('.'))raw=raw.lastIndexOf(',')>raw.lastIndexOf('.')?raw.replace(/\./g,'').replace(',','.'):raw.replace(/,/g,'');
+  else if(raw.includes(','))raw=raw.replace(',','.');
+  const n=Number(raw);
+  if(!Number.isFinite(n)||n<0)throw Error('Row '+row+': invalid '+field+' ('+v+').');return n;
+ };
+ items=filled.map(({r,row})=>{
+  const code=String(get(r,'Product Code')??'').trim(),name=String(get(r,'Product Description')??'').trim();
+  if(!code||!name)throw Error('Row '+row+': Product Code and Product Description are required.');
+  const qty=num(get(r,'Stock Quantity'),true,'Stock Quantity',row),cost=num(get(r,'Unit Cost'),true,'Unit Cost',row),price=num(get(r,'Selling Price'),false,'Selling Price',row),min=num(get(r,'Minimum Selling Price'),false,'Minimum Selling Price',row);
+  if(price!==null&&min!==null&&min>price)throw Error('Row '+row+': Minimum Selling Price exceeds Selling Price.');
+  return {code,name,qty,cost,price,min,expiry:get(r,'Expiration Date'),entry:get(r,'Stock Entry Date'),discount:0,stock:qty*cost};
+ });classify();render();
+}
+function classify(){let sorted=[...items].sort((a,b)=>b.stock-a.stock),total=sorted.reduce((s,p)=>s+p.stock,0),cum=0;for(const p of sorted){const before=total?cum/total:1;p.abc=before<.8?'A':before<.95?'B':'C';cum+=p.stock;const max=p.price===null?0:p.min===null?50:Math.max(0,100*(1-p.min/p.price));p.suggest=p.price===null?null:Math.min(p.abc==='A'?10:p.abc==='B'?15:20,max);p.discount=p.suggest??0}}
+function safe(t){return String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function calc(p){let final=p.price===null?null:p.price*(1-p.discount/100);return {final,revenue:final===null?null:final*p.qty,pl:final===null?null:(final-p.cost)*p.qty,valid:final===null||p.min===null||final+1e-8>=p.min}}
+function chart(id,arr,label){const max=Math.max(...arr.map(x=>x.v),1);$(id).innerHTML=arr.map(x=>'<div class="barwrap"><small>'+safe(money(x.v))+'</small><div class="bar" style="height:'+Math.max(2,Math.round(x.v/max*130))+'px"></div><small title="'+safe(x.label)+'">'+safe(x.label.length>13?x.label.slice(0,12)+'…':x.label)+'</small></div>').join('')}
+function render(){const stock=items.reduce((s,p)=>s+p.stock,0),rs=items.map(calc),rev=rs.every(x=>x.revenue!==null)?rs.reduce((s,x)=>s+x.revenue,0):null,pl=rs.every(x=>x.pl!==null)?rs.reduce((s,x)=>s+x.pl,0):null;$('results').hidden=false;$('count').textContent=items.length;$('cost').textContent=money(stock);$('revenue').textContent=money(rev);$('profit').textContent=money(pl);const groups=['A','B','C'].map(k=>({label:'Class '+k,v:items.filter(p=>p.abc===k).reduce((s,p)=>s+p.stock,0),count:items.filter(p=>p.abc===k).length}));$('abcSummary').innerHTML=groups.map(g=>'<div class="metric">'+g.label+': '+g.count+' products · '+(stock?(100*g.v/stock).toFixed(1):'0')+'% of value</div>').join('');chart('abcChart',groups);chart('topChart',[...items].sort((a,b)=>b.stock-a.stock).slice(0,10).map(p=>({label:p.name,v:p.stock})));const ordered=items.map((p,i)=>({p,i})).sort((x,y)=>x.p.abc.localeCompare(y.p.abc)||y.p.stock-x.p.stock||x.i-y.i);let lastClass='';$('rows').innerHTML=ordered.map(({p,i})=>{const r=rs[i];let separator='';if(p.abc!==lastClass){lastClass=p.abc;const n=items.filter(x=>x.abc===p.abc).length;separator='<tr class="group-row group-'+p.abc.toLowerCase()+'"><td colspan="13">CLASS '+p.abc+' — '+n+' product'+(n===1?'':'s')+' · Sorted by stock value (highest to lowest)</td></tr>';}return separator+'<tr><td data-label="Code">'+safe(p.code)+'</td><td data-label="Product">'+safe(p.name)+'</td><td data-label="Qty">'+p.qty+'</td><td data-label="Unit Cost">'+money(p.cost)+'</td><td data-label="Stock Value">'+money(p.stock)+'</td><td data-label="ABC"><span class="abc-pill pill-'+p.abc.toLowerCase()+'">'+p.abc+'</span></td><td data-label="Original Price">'+money(p.price)+'</td><td data-label="Min Price">'+money(p.min)+'</td><td data-label="Suggested %">'+(p.suggest===null?'—':p.suggest.toFixed(1)+'%')+'</td><td data-label="Final %">'+(p.price===null?'—':'<input aria-label="Final discount for '+safe(p.name)+'" type="number" min="0" max="100" step="1" value="'+p.discount+'" data-index="'+i+'">')+'</td><td data-label="New Price">'+money(r.final)+'</td><td data-label="Revenue">'+money(r.revenue)+'</td><td data-label="Potential Profit / Loss" class="'+(r.pl===null?'':r.pl<0?'bad':r.pl>0?'good':'')+'">'+money(r.pl)+'</td></tr>'}).join('');$('rows').querySelectorAll('input').forEach(el=>el.addEventListener('change',e=>{const i=Number(e.target.dataset.index),v=Number(e.target.value);if(!Number.isFinite(v)||v<0||v>100){alert('Discount must be between 0 and 100%.');render();return}const p=items[i],max=p.min===null?100:100*(1-p.min/p.price);if(v>max+1e-8){alert('Discount exceeds minimum selling price. Maximum: '+max.toFixed(1)+'%');render();return}p.discount=v;render()}));const a=groups[0],exp=items.filter(p=>p.expiry).length;$('insights').innerHTML='<p>'+a.count+' products account for '+(stock?(100*a.v/stock).toFixed(1):'0')+'% of unsold stock cost.</p><p>'+items.filter(p=>p.price===null).length+' products have no selling price, so their recovery revenue cannot be estimated.</p><p>'+exp+' products include an expiration date. Verify dates and legal sale eligibility before discounting.</p>';$('status').textContent=items.length+' products analyzed locally.'}
+
+function exportResultsExcel(){
+ if(!items.length){alert('Upload inventory or load demo data first.');return;}
+ if(typeof XLSX==='undefined'){alert('Spreadsheet library unavailable. Connect to the internet and retry.');return;}
+ const sorted=[...items].sort((a,b)=>a.abc.localeCompare(b.abc)||b.stock-a.stock||a.code.localeCompare(b.code));
+ const headers=['Product Code','Product Description','Stock Quantity','Unit Cost','Stock Value','ABC Class','Original Selling Price','Minimum Selling Price','Suggested Discount %','Final Discount %','New Selling Price','Potential Revenue','Potential Profit / Loss','Expiration Date','Stock Entry Date'];
+ const rows=sorted.map(p=>{const r=calc(p);return [p.code,p.name,p.qty,p.cost,p.stock,p.abc,p.price,p.min,p.suggest===null?null:p.suggest/100,p.price===null?null:p.discount/100,r.final,r.revenue,r.pl,p.expiry||'',p.entry||''];});
+ const ws=XLSX.utils.aoa_to_sheet([headers,...rows]);
+ ws['!cols']=[{wch:17},{wch:42},{wch:17},{wch:15},{wch:19},{wch:13},{wch:23},{wch:23},{wch:22},{wch:20},{wch:20},{wch:21},{wch:27},{wch:19},{wch:19}];
+ ws['!autofilter']={ref:'A1:O'+(rows.length+1)};ws['!freeze']={xSplit:0,ySplit:1};
+ for(let i=0;i<rows.length;i++){
+  const n=i+2;
+  for(const col of ['D','E','G','H','K','L','M']){const cell=ws[col+n];if(cell&&cell.t==='n')cell.z='#,##0.00 "€"';}
+  for(const col of ['I','J']){const cell=ws[col+n];if(cell&&cell.t==='n')cell.z='0.0%';}
+  const qty=ws['C'+n];if(qty&&qty.t==='n')qty.z='#,##0.##';
+ }
+ const stock=items.reduce((sum,p)=>sum+p.stock,0),calcs=items.map(calc);
+ const totalRevenue=calcs.every(r=>r.revenue!==null)?calcs.reduce((sum,r)=>sum+r.revenue,0):'N/A - missing selling prices';
+ const totalProfit=calcs.every(r=>r.pl!==null)?calcs.reduce((sum,r)=>sum+r.pl,0):'N/A - missing selling prices';
+ const summary=[['TiedChain Stock Recovery Analysis',''],['Products',items.length],['Total Unsold Stock Cost',stock],['Potential Revenue',totalRevenue],['Potential Profit / Loss',totalProfit],[],['ABC Class','Products','Stock Value','Share of Total Stock Value']];
+ for(const k of ['A','B','C']){const group=items.filter(p=>p.abc===k),value=group.reduce((sum,p)=>sum+p.stock,0);summary.push(['Class '+k,group.length,value,stock?value/stock:0]);}
+ summary.push([],['Note','Revenue assumes all units sell at final scenario prices. Excludes taxes, fees and selling costs.']);
+ const sumSheet=XLSX.utils.aoa_to_sheet(summary);sumSheet['!cols']=[{wch:34},{wch:22},{wch:22},{wch:33}];
+ for(const row of [3,4,5]){const cell=sumSheet['B'+row];if(cell&&cell.t==='n')cell.z='#,##0.00 "€"';}
+ for(const row of [8,9,10]){const c=sumSheet['C'+row],d=sumSheet['D'+row];if(c)c.z='#,##0.00 "€"';if(d)d.z='0.0%';}
+ const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,'Recovery Results');XLSX.utils.book_append_sheet(wb,sumSheet,'Summary');
+ XLSX.writeFile(wb,'TiedChain_Stock_Recovery_Results.xlsx');
+}
+$('exportResults').onclick=exportResultsExcel;
+
+$('demo').onclick=()=>{$('mapping').hidden=true;parse([{ 'Product Code':'1001','Product Description':'Beverage A','Stock Quantity':500,'Unit Cost':6,'Selling Price':10,'Minimum Selling Price':7.5},{'Product Code':'1002','Product Description':'Beverage B','Stock Quantity':200,'Unit Cost':8,'Selling Price':15,'Minimum Selling Price':10},{'Product Code':'1003','Product Description':'Beverage C','Stock Quantity':120,'Unit Cost':4,'Selling Price':8,'Minimum Selling Price':6},{'Product Code':'1004','Product Description':'Beverage D','Stock Quantity':80,'Unit Cost':12,'Selling Price':20,'Minimum Selling Price':14}]);};
+$('upload').onchange=async e=>{try{
+ const f=e.target.files[0];if(!f)return;
+ if(typeof XLSX==='undefined')throw Error('Spreadsheet library unavailable. Please connect to the internet.');
+ const ext=f.name.toLowerCase().split('.').pop();if(!['xlsx','xls','csv','tsv'].includes(ext))throw Error('Supported formats: XLSX, XLS, CSV and TSV.');
+ let wb;
+ if(ext==='csv'||ext==='tsv'){
+  const raw=await f.text();const first=raw.replace(/^\uFEFF/,'').split(/\r?\n/,1)[0];
+  const delimiter=ext==='tsv'?'\t':([';',',','\t'].sort((a,b)=>first.split(b).length-first.split(a).length)[0]);
+  wb=XLSX.read(raw,{type:'string',FS:delimiter});
+ }else wb=XLSX.read(await f.arrayBuffer(),{type:'array',cellDates:true});
+ const sheet=wb.SheetNames.map(n=>wb.Sheets[n]).find(sh=>XLSX.utils.sheet_to_json(sh,{defval:'',raw:false}).some(r=>Object.values(r).some(v=>String(v).trim())))||wb.Sheets[wb.SheetNames[0]];
+ const rows=XLSX.utils.sheet_to_json(sheet,{defval:'',raw:false});
+ if(!rows.length)throw Error('No product rows found in the first nonempty sheet.');
+ importRows(rows);
+ }catch(err){$('status').textContent='Error: '+err.message;$('results').hidden=true;$('mapping').hidden=true;}
+};
+</script></body></html>
